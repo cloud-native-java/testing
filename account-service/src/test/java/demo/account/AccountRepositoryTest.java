@@ -15,7 +15,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 @RunWith(SpringRunner.class)
 @DataJpaTest
 public class AccountRepositoryTest {
-    public static final AccountNumber ACCOUNT_NUMBER = new AccountNumber("098765432");
+
+    private static final AccountNumber ACCOUNT_NUMBER = new AccountNumber("098765432");
+
     @Autowired
     CustomerRepository customerRepository;
 

@@ -1,8 +1,6 @@
 package demo.creditcard;
 
 
-import demo.creditcard.CreditCard;
-import demo.creditcard.CreditCardType;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,8 +1,6 @@
 package demo.account;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import demo.account.Account;
-import demo.account.AccountService;
 import demo.user.User;
 import demo.user.UserService;
 import org.junit.Test;
@@ -54,5 +52,4 @@ public class AccountControllerApplicationTest {
                         .writeValueAsString(
                                 Collections.singletonList(expected))));
     }
-
 }

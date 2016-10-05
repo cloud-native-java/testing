@@ -1,6 +1,5 @@
 package demo.account;
 
-
 import demo.address.Address;
 import demo.address.AddressType;
 import demo.creditcard.CreditCard;
@@ -28,7 +27,6 @@ public class AccountTests {
 
     @Before
     public void setUp() throws Exception {
-
         Account account = new Account("user", "123456789");
         account.setId(0L);
         account.setDefaultAccount(true);

@@ -39,13 +39,10 @@ public class AccountServiceTests {
         given(this.userService.getAuthenticatedUser())
                 .willReturn(new User(0L, "user", "John", "Doe"));
 
-        System.out.println(accountRepository.findAccountsByUserId("user"));
-
         List<Account> actual = accountService.getUserAccounts();
 
         assertThat(actual).size().isEqualTo(1);
         assertThat(actual.get(0).getUserId()).isEqualTo("user");
         assertThat(actual.get(0).getAccountNumber()).isEqualTo(new AccountNumber("123456789"));
     }
-
 }

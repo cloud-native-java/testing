@@ -1,8 +1,5 @@
 package demo.account;
 
-import demo.account.Account;
-import demo.account.AccountController;
-import demo.account.AccountService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +28,6 @@ public class AccountControllerTest {
 
     @Test
     public void contextLoads() throws Exception {
-
         String content = "[{\"userId\": \"user\", \"accountNumber\": \"123456789\"}]";
 
         given(this.accountService.getUserAccounts())
@@ -40,5 +36,4 @@ public class AccountControllerTest {
         this.mvc.perform(get("/v1/accounts").accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk()).andExpect(content().json(content));
     }
-
 }

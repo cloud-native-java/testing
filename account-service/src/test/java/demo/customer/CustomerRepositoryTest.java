@@ -5,8 +5,6 @@ import demo.address.Address;
 import demo.address.AddressType;
 import demo.creditcard.CreditCard;
 import demo.creditcard.CreditCardType;
-import demo.customer.Customer;
-import demo.customer.CustomerRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

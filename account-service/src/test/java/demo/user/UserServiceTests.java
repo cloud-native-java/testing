@@ -45,5 +45,4 @@ public class UserServiceTests {
     private ClassPathResource getClassPathResource(String path) {
         return new ClassPathResource(path, getClass());
     }
-
 }
