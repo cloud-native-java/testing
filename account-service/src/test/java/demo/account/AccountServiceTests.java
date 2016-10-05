@@ -1,8 +1,5 @@
-package demo.account.integration.service;
+package demo.account;
 
-import demo.account.Account;
-import demo.account.AccountRepository;
-import demo.account.AccountService;
 import demo.user.User;
 import demo.user.UserService;
 import org.junit.Before;
@@ -36,9 +33,9 @@ public class AccountServiceTests {
     }
 
     @Test
-    public void exampleTest() throws Exception {
+    public void getUserAccountsReturnsSingleAccount() throws Exception {
         given(this.accountRepository.findAccountsByUserId("user"))
-                .willReturn(Collections.singletonList(new Account("user", "123456789")));
+                .willReturn(Collections.singletonList(new Account("user", new AccountNumber("123456789"))));
         given(this.userService.getAuthenticatedUser())
                 .willReturn(new User(0L, "user", "John", "Doe"));
 
@@ -48,7 +45,7 @@ public class AccountServiceTests {
 
         assertThat(actual).size().isEqualTo(1);
         assertThat(actual.get(0).getUserId()).isEqualTo("user");
-        assertThat(actual.get(0).getAccountNumber()).isEqualTo("123456789");
+        assertThat(actual.get(0).getAccountNumber()).isEqualTo(new AccountNumber("123456789"));
     }
 
 }

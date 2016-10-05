@@ -1,4 +1,4 @@
-package demo.account.integration.web;
+package demo.account;
 
 import demo.account.Account;
 import demo.account.AccountController;

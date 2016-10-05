@@ -31,6 +31,13 @@ public class Account extends BaseEntity {
         this.defaultAccount = false;
     }
 
+    public Account(String userId, AccountNumber accountNumber) {
+        this();
+        this.userId = userId;
+        this.accountNumber = accountNumber;
+        this.defaultAccount = false;
+    }
+
     public Account(String userId, String accountNumber) {
         this();
         this.userId = userId;
@@ -56,12 +63,12 @@ public class Account extends BaseEntity {
         this.userId = userId;
     }
 
-    public String getAccountNumber() {
-        return accountNumber.getAccountNumber();
+    public AccountNumber getAccountNumber() {
+        return this.accountNumber;
     }
 
-    public void setAccountNumber(String accountNumber) {
-        this.accountNumber = new AccountNumber(accountNumber);
+    public void setAccountNumber(AccountNumber accountNumber) {
+        this.accountNumber = accountNumber;
     }
 
     public Boolean getDefaultAccount() {
@@ -95,42 +102,10 @@ public class Account extends BaseEntity {
         return "Account{" +
                 "id=" + id +
                 ", userId='" + userId + '\'' +
-                ", accountNumber='" + accountNumber + '\'' +
+                ", accountNumber=" + accountNumber +
                 ", defaultAccount=" + defaultAccount +
                 ", creditCards=" + creditCards +
                 ", addresses=" + addresses +
                 "} " + super.toString();
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Account)) return false;
-        if (!super.equals(o)) return false;
-
-        Account account = (Account) o;
-
-        if (getId() != null ? !getId().equals(account.getId()) : account.getId() != null) return false;
-        if (getUserId() != null ? !getUserId().equals(account.getUserId()) : account.getUserId() != null) return false;
-        if (getAccountNumber() != null ? !getAccountNumber().equals(account.getAccountNumber()) : account.getAccountNumber() != null)
-            return false;
-        if (getDefaultAccount() != null ? !getDefaultAccount().equals(account.getDefaultAccount()) : account.getDefaultAccount() != null)
-            return false;
-        if (getCreditCards() != null ? !getCreditCards().equals(account.getCreditCards()) : account.getCreditCards() != null)
-            return false;
-        return getAddresses() != null ? getAddresses().equals(account.getAddresses()) : account.getAddresses() == null;
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result = super.hashCode();
-        result = 31 * result + (getId() != null ? getId().hashCode() : 0);
-        result = 31 * result + (getUserId() != null ? getUserId().hashCode() : 0);
-        result = 31 * result + (getAccountNumber() != null ? getAccountNumber().hashCode() : 0);
-        result = 31 * result + (getDefaultAccount() != null ? getDefaultAccount().hashCode() : 0);
-        result = 31 * result + (getCreditCards() != null ? getCreditCards().hashCode() : 0);
-        result = 31 * result + (getAddresses() != null ? getAddresses().hashCode() : 0);
-        return result;
     }
 }

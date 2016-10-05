@@ -21,17 +21,8 @@ public class AccountService {
         List<Account> accounts = null;
         User user = userService.getAuthenticatedUser();
 
-        if (user != null) {
+        if (user != null)
             accounts = accountRepository.findAccountsByUserId(user.getUsername());
-
-            // Mask credit card numbers
-            if (accounts != null) {
-                accounts.forEach(acct -> acct.getCreditCards()
-                        .forEach(card ->
-                                card.setNumber(card.getNumber()
-                                        .replaceAll("([\\d]{4})(?!$)", "****-"))));
-            }
-        }
 
         return accounts;
     }

@@ -1,4 +1,4 @@
-package demo.account.integration.domain;
+package demo.customer;
 
 import demo.account.Account;
 import demo.address.Address;

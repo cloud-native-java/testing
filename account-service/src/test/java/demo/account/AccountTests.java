@@ -1,7 +1,6 @@
-package demo.account.unit.domain;
+package demo.account;
 
 
-import demo.account.Account;
 import demo.address.Address;
 import demo.address.AddressType;
 import demo.creditcard.CreditCard;

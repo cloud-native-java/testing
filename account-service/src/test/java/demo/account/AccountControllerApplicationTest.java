@@ -1,4 +1,4 @@
-package demo.account.integration.web;
+package demo.account;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import demo.account.Account;
