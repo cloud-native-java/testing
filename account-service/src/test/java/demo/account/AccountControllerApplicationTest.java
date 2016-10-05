@@ -39,7 +39,7 @@ public class AccountControllerApplicationTest {
     private UserService userService;
 
     @Test
-    public void exampleTest() throws Exception {
+    public void getUserAccountsReturnAccount() throws Exception {
         given(this.userService.getAuthenticatedUser())
                 .willReturn(new User(0L, "user", "John", "Doe"));
 
