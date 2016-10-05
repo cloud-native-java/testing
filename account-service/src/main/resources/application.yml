@@ -8,7 +8,7 @@ spring:
     show_sql: false
     database: H2
   datasource:
-    url: jdbc:h2:mem:testdb;DB_CLOSE_ON_EXIT=FALSE
+    url: jdbc:h2:mem:testdb
     initialize: true
     platform: H2
 ---
