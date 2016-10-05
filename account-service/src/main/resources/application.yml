@@ -1,0 +1,22 @@
+---
+spring:
+  profiles:
+    active: default
+  application:
+    name: account-service
+  jpa:
+    show_sql: false
+    database: H2
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_ON_EXIT=FALSE
+    initialize: true
+    platform: H2
+---
+spring:
+  profiles: development
+  datasource:
+    url: jdbc:mysql://192.168.99.100:3306/dev
+    username: root
+    password: dbpass
+    initialize: false
+
