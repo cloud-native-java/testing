@@ -3,7 +3,6 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>testing</artifactId>
     <packaging>pom</packaging>
 
     <parent>
@@ -11,11 +10,14 @@
         <artifactId>parent</artifactId>
         <version>1.0.0-SNAPSHOT</version>
         <relativePath/>
+
     </parent>
 
+    <artifactId>testing</artifactId>
+
     <modules>
-        <module>account-service</module>
-        <module>user-service</module>
+        <module>testing-basics</module>
+        <module>testing-microservices</module>
     </modules>
 
     <build>
