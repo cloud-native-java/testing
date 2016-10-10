@@ -5,9 +5,6 @@ sudo: required
 services:
   - docker
 
-before_install:
-  - sudo apt-get --only-upgrade install -qq maven
-
 jdk:
   - oraclejdk8
 
