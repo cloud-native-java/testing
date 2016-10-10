@@ -7,7 +7,7 @@ import demo.user.UserController;
 import demo.user.UserService;
 import org.junit.Before;
 import org.junit.runner.RunWith;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 import sun.security.acl.PrincipalImpl;
@@ -15,7 +15,7 @@ import sun.security.acl.PrincipalImpl;
 import static org.mockito.BDDMockito.given;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, classes = UserApplication.class)
+@WebMvcTest(UserController.class)
 public class UserServiceBase {
 
     @MockBean

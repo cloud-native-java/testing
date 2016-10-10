@@ -80,6 +80,7 @@
                 <extensions>true</extensions>
                 <configuration>
                     <baseClassForTests>demo.UserServiceBase</baseClassForTests>
+                    <basePackageForTests>demo</basePackageForTests>
                 </configuration>
             </plugin>
         </plugins>
