@@ -1,4 +1,4 @@
-package demo.account;
+package demo.user;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -8,8 +8,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-
-import java.util.Collections;
+import sun.security.acl.PrincipalImpl;
 
 import static org.mockito.BDDMockito.given;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -17,23 +16,30 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
-@WebMvcTest(AccountController.class)
-public class AccountControllerTest {
+@WebMvcTest(UserController.class)
+public class UserControllerTest {
 
     @Autowired
     private MockMvc mvc;
 
     @MockBean
-    private AccountService accountService;
+    private UserService userService;
+
+    @MockBean
+    private AuthService authService;
 
     @Test
-    public void getUserAccountsShouldReturnAccounts() throws Exception {
-        String content = "[{\"username\": \"user\", \"accountNumber\": \"123456789\"}]";
+    public void getUserShouldReturnUser() throws Exception {
+        String content = "{\"username\": \"user\", \"firstName\": \"Jack\", \"lastName\": \"Frost\", \"email\": \"jfrost@example.com\"}";
 
-        given(this.accountService.getUserAccounts())
-                .willReturn(Collections.singletonList(new Account("user", "123456789")));
+        given(this.userService.getUserByPrincipal(new PrincipalImpl("user")))
+                .willReturn(new User("user", "Jack", "Frost", "jfrost@example.com"));
 
-        this.mvc.perform(get("/v1/accounts").accept(MediaType.APPLICATION_JSON))
+        // TODO: Mock authenticated user
+        given(this.authService.getAuthenticatedUser(null))
+                .willReturn(new PrincipalImpl("user"));
+
+        this.mvc.perform(get("/uaa/v1/me").accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk()).andExpect(content().json(content));
     }
 }

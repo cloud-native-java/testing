@@ -3,6 +3,7 @@ package demo.user;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.autoconfigure.web.client.AutoConfigureWebClient;
 import org.springframework.boot.test.autoconfigure.web.client.RestClientTest;
 import org.springframework.core.io.ClassPathResource;
@@ -15,9 +16,12 @@ import static org.springframework.test.web.client.match.MockRestRequestMatchers.
 import static org.springframework.test.web.client.response.MockRestResponseCreators.withSuccess;
 
 @RunWith(SpringRunner.class)
-@RestClientTest({ UserService.class })
-@AutoConfigureWebClient(registerRestTemplate=true)
+@RestClientTest({UserService.class})
+@AutoConfigureWebClient(registerRestTemplate = true)
 public class UserServiceTests {
+
+    @Value("${user-service.host:user-service}")
+    private String serviceHost;
 
     @Autowired
     private UserService userService;
@@ -26,9 +30,9 @@ public class UserServiceTests {
     private MockRestServiceServer server;
 
     @Test
-    public void getUserReturnsNull() {
+    public void getAuthenticatedUserShouldReturnUser() {
         // Mock the expected response from the user service
-        this.server.expect(requestTo("http://user-service/uaa/v1/me"))
+        this.server.expect(requestTo(String.format("http://%s/uaa/v1/me", serviceHost)))
                 .andRespond(withSuccess(getClassPathResource("user.json"),
                         MediaType.APPLICATION_JSON));
 

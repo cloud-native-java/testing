@@ -2,7 +2,7 @@
   "createdAt": 12345,
   "lastModified": 12346,
   "id": 0,
-  "userId": "user",
+  "username": "user",
   "accountNumber": "123456789",
   "defaultAccount": true,
   "creditCards": [{

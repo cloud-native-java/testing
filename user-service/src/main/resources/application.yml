@@ -9,4 +9,3 @@ spring:
   data:
     rest:
       base-path: /api
-user-service.host: ${USER_SERVICE_HOST:localhost:8081}

@@ -14,7 +14,8 @@
     </parent>
 
     <modules>
-      <module>account-service</module>
+        <module>account-service</module>
+        <module>user-service</module>
     </modules>
 
     <build>

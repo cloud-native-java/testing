@@ -10,7 +10,7 @@ CREATE TABLE account
   last_modified   BIGINT(20),
   account_number  VARCHAR(255),
   default_account BIT(1),
-  user_id         VARCHAR(255)
+  username         VARCHAR(255)
 );
 
 DROP TABLE IF EXISTS address;

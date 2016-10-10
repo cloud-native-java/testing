@@ -54,10 +54,10 @@ public class AccountTests {
     public void serializeJson() throws Exception {
         assertThat(this.json.write(account)).isEqualTo("account.json");
         assertThat(this.json.write(account)).isEqualToJson("account.json");
-        assertThat(this.json.write(account)).hasJsonPathStringValue("@.userId");
+        assertThat(this.json.write(account)).hasJsonPathStringValue("@.username");
 
         assertThat(this.json.write(account))
-                .extractingJsonPathStringValue("@.userId")
+                .extractingJsonPathStringValue("@.username")
                 .isEqualTo("user");
 
         assertThat(this.json.write(account))
@@ -67,9 +67,9 @@ public class AccountTests {
 
     @Test
     public void deserializeJson() throws Exception {
-        String content = "{\"userId\": \"user\", \"accountNumber\": \"123456789\"}";
+        String content = "{\"username\": \"user\", \"accountNumber\": \"123456789\"}";
         assertThat(this.json.parse(content))
                 .isEqualTo(new Account("user", "123456789"));
-        assertThat(this.json.parseObject(content).getUserId()).isEqualTo("user");
+        assertThat(this.json.parseObject(content).getUsername()).isEqualTo("user");
     }
 }

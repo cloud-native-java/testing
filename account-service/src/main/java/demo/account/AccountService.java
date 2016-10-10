@@ -22,7 +22,7 @@ public class AccountService {
         User user = userService.getAuthenticatedUser();
 
         if (user != null)
-            accounts = accountRepository.findAccountsByUserId(user.getUsername());
+            accounts = accountRepository.findAccountsByUsername(user.getUsername());
 
         return accounts;
     }

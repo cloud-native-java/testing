@@ -19,7 +19,7 @@ import java.util.Set;
 public class Account extends BaseEntity {
 
     private Long id;
-    private String userId;
+    private String username;
     private AccountNumber accountNumber;
     private Boolean defaultAccount;
     private Set<CreditCard> creditCards;
@@ -31,16 +31,16 @@ public class Account extends BaseEntity {
         this.defaultAccount = false;
     }
 
-    public Account(String userId, AccountNumber accountNumber) {
+    public Account(String username, AccountNumber accountNumber) {
         this();
-        this.userId = userId;
+        this.username = username;
         this.accountNumber = accountNumber;
         this.defaultAccount = false;
     }
 
-    public Account(String userId, String accountNumber) {
+    public Account(String username, String accountNumber) {
         this();
-        this.userId = userId;
+        this.username = username;
         this.accountNumber = new AccountNumber(accountNumber);
         this.defaultAccount = false;
     }
@@ -55,12 +55,12 @@ public class Account extends BaseEntity {
         this.id = id;
     }
 
-    public String getUserId() {
-        return userId;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public AccountNumber getAccountNumber() {
@@ -101,7 +101,7 @@ public class Account extends BaseEntity {
     public String toString() {
         return "Account{" +
                 "id=" + id +
-                ", userId='" + userId + '\'' +
+                ", username='" + username + '\'' +
                 ", accountNumber=" + accountNumber +
                 ", defaultAccount=" + defaultAccount +
                 ", creditCards=" + creditCards +
