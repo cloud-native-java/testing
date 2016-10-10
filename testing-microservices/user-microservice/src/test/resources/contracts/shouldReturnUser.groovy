@@ -5,7 +5,7 @@ org.springframework.cloud.contract.spec.Contract.make {
         method 'GET'
         url '/uaa/v1/me'
         headers {
-            header('Content-Type': regex('application/*json*'))
+            header('Content-Type': consumer(regex('application/*json*')))
         }
     }
     response {
