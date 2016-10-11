@@ -3,7 +3,7 @@ jdk:
   - oraclejdk8
 sudo: false
 install: true
-before_script: ./mvnw install -U -DskipTests=true -Dmaven.test.redirectTestOutputToFile=true
+before_script: ./mvnw install -DskipTests=true -Dmaven.test.redirectTestOutputToFile=true
 script: ./mvnw install -nsu -Dmaven.test.redirectTestOutputToFile=true
 cache:
   directories:
