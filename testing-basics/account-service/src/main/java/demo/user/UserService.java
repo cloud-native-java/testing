@@ -17,6 +17,7 @@ public class UserService {
     }
 
     public User getAuthenticatedUser() {
-        return restTemplate.getForObject(String.format("http://%s/uaa/v1/me", serviceHost), User.class);
+        return restTemplate.getForObject(
+                String.format("http://%s/uaa/v1/me", serviceHost), User.class);
     }
 }
