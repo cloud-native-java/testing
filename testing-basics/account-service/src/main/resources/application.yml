@@ -1,0 +1,12 @@
+spring:
+  jpa:
+    show_sql: false
+    database: H2
+  datasource:
+    url: jdbc:h2:mem:testdb
+    initialize: true
+    platform: H2
+  data:
+    rest:
+      base-path: /api
+user-service.host: ${USER_SERVICE_HOST:localhost:8081}
