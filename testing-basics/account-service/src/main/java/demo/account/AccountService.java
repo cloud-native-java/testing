@@ -12,7 +12,8 @@ public class AccountService {
     private AccountRepository accountRepository;
     private UserService userService;
 
-    public AccountService(AccountRepository accountRepository, UserService userService) {
+    public AccountService(AccountRepository accountRepository,
+                          UserService userService) {
         this.accountRepository = accountRepository;
         this.userService = userService;
     }
@@ -22,7 +23,8 @@ public class AccountService {
         User user = userService.getAuthenticatedUser();
 
         if (user != null)
-            accounts = accountRepository.findAccountsByUsername(user.getUsername());
+            accounts = accountRepository
+                    .findAccountsByUsername(user.getUsername());
 
         return accounts;
     }

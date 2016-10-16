@@ -5,7 +5,6 @@ import demo.user.UserService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -16,7 +15,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.BDDMockito.given;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK)
 public class AccountServiceTests {
 
     @MockBean
@@ -35,7 +33,9 @@ public class AccountServiceTests {
     @Test
     public void getUserAccountsReturnsSingleAccount() throws Exception {
         given(this.accountRepository.findAccountsByUsername("user"))
-                .willReturn(Collections.singletonList(new Account("user", new AccountNumber("123456789"))));
+                .willReturn(Collections.singletonList(new Account("user",
+                        new AccountNumber("123456789"))));
+
         given(this.userService.getAuthenticatedUser())
                 .willReturn(new User(0L, "user", "John", "Doe"));
 
@@ -43,6 +43,7 @@ public class AccountServiceTests {
 
         assertThat(actual).size().isEqualTo(1);
         assertThat(actual.get(0).getUsername()).isEqualTo("user");
-        assertThat(actual.get(0).getAccountNumber()).isEqualTo(new AccountNumber("123456789"));
+        assertThat(actual.get(0).getAccountNumber())
+                .isEqualTo(new AccountNumber("123456789"));
     }
 }

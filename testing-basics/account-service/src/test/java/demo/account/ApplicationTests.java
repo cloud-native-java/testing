@@ -1,23 +1,32 @@
 package demo.account;
 
+import demo.user.User;
+import demo.user.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.ApplicationContext;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.util.Assert;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.BDDMockito.given;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class ApplicationTests {
 
-    @Autowired
-    protected ApplicationContext applicationContext;
+    @MockBean
+    private UserService userService;
 
     @Test
-    public void contextLoads() {
-        Assert.notNull(applicationContext);
+    public void userServiceShouldReturnMockResponse() {
+        given(this.userService.getAuthenticatedUser())
+                .willReturn(new User(0L, "bobbyd", "Bob", "Dylan"));
+
+        User actual = userService.getAuthenticatedUser();
+        assertThat(actual).isNotNull();
+        assertThat(actual.getFirstName()).isEqualTo("Bob");
+        assertThat(actual.getLastName()).isEqualTo("Dylan");
     }
 
 }

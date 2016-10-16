@@ -1,0 +1,12 @@
+language: java
+jdk:
+  - oraclejdk8
+sudo: false
+before_install:
+  - rm ~/.m2/settings.xml
+install: true
+before_script: ./mvnw clean install -DskipTests=true -Dmaven.test.redirectTestOutputToFile=true
+script: ./mvnw clean install -nsu -Dmaven.test.redirectTestOutputToFile=true
+cache:
+  directories:
+    - $HOME/.m2/repository/
