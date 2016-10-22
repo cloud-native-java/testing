@@ -1,6 +1,5 @@
 package demo.account;
 
-import demo.customer.CustomerRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,9 +16,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class AccountRepositoryTest {
 
     private static final AccountNumber ACCOUNT_NUMBER = new AccountNumber("098765432");
-
-    @Autowired
-    private CustomerRepository customerRepository;
 
     @Autowired
     private TestEntityManager entityManager;
