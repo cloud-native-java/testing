@@ -5,11 +5,14 @@
 
     <packaging>pom</packaging>
 
+
     <parent>
         <groupId>cnj</groupId>
         <artifactId>parent</artifactId>
         <version>1.0.0-SNAPSHOT</version>
+        <relativePath/>
     </parent>
+
 
     <artifactId>testing</artifactId>
 

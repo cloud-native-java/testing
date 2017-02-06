@@ -3,11 +3,7 @@ package demo.account;
 import com.fasterxml.jackson.annotation.JsonValue;
 import org.springframework.util.Assert;
 
-/**
- * An Account Number for the {@link Account} entity
- *
- * @author Kenny Bastani
- */
+
 public class AccountNumber {
 
     private String accountNumber;

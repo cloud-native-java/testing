@@ -4,12 +4,6 @@ import demo.data.BaseEntity;
 
 import javax.persistence.*;
 
-/**
- * A simple {@link Address} entity for an account.
- *
- * @author Kenny Bastani
- * @author Josh Long
- */
 @Entity
 public class Address extends BaseEntity {
 

@@ -1,20 +1,14 @@
 package demo.account;
 
-import demo.creditcard.CreditCard;
 import demo.address.Address;
-import demo.customer.Customer;
+import demo.creditcard.CreditCard;
 import demo.data.BaseEntity;
 
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * This entity stores information about a {@link Customer}'s {@link Account}.
- *
- * @author Kenny Bastani
- * @author Josh Long
- */
+
 @Entity
 public class Account extends BaseEntity {
 

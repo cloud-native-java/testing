@@ -22,7 +22,6 @@ public class CreditCardTests {
 
     @Before
     public void setUp() throws Exception {
-        // Generate account credit card
         CreditCard card = new CreditCard("1111-1111-1111-1111", CreditCardType.VISA);
         card.setId(0L);
         card.setCreatedAt(12345L);
