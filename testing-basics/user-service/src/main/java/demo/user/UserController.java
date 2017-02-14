@@ -12,19 +12,20 @@ import java.util.Optional;
 @RequestMapping(path = "/uaa/v1")
 public class UserController {
 
-    private UserService userService;
-    private AuthService authService;
+	private UserService userService;
+	private AuthService authService;
 
-    public UserController(UserService userService, AuthService authService) {
-        this.userService = userService;
-        this.authService = authService;
-    }
+	public UserController(UserService userService, AuthService authService) {
+		this.userService = userService;
+		this.authService = authService;
+	}
 
-    @RequestMapping(path = "/me")
-    public ResponseEntity<User> me(Principal principal) throws Exception {
-        return Optional.ofNullable(authService.getAuthenticatedUser(principal))
-                .map(p -> new ResponseEntity<User>(
-                        userService.getUserByPrincipal(p), HttpStatus.OK))
-                .orElse(new ResponseEntity<User>(HttpStatus.UNAUTHORIZED));
-    }
+	@RequestMapping(path = "/me")
+	public ResponseEntity<User> me(Principal principal) throws Exception {
+		return Optional
+				.ofNullable(authService.getAuthenticatedUser(principal))
+				.map(
+						p -> new ResponseEntity<User>(userService.getUserByPrincipal(p),
+								HttpStatus.OK)).orElse(new ResponseEntity<User>(HttpStatus.UNAUTHORIZED));
+	}
 }

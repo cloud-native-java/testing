@@ -13,19 +13,20 @@ import java.net.URI;
 @Service
 public class UserService {
 
-    @Value("${user-service.host:user-service}")
-    private String serviceHost;
+	@Value("${user-service.host:user-service}")
+	private String serviceHost;
 
-    private RestTemplate restTemplate;
+	private RestTemplate restTemplate;
 
-    public UserService(RestTemplate restTemplate) {
-        this.restTemplate = restTemplate;
-    }
+	public UserService(RestTemplate restTemplate) {
+		this.restTemplate = restTemplate;
+	}
 
-    public User getAuthenticatedUser() {
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_JSON);
-        return restTemplate.exchange(new RequestEntity<>(headers, HttpMethod.GET,
-                URI.create(String.format("http://%s/uaa/v1/me", serviceHost))), User.class).getBody();
-    }
+	public User getAuthenticatedUser() {
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
+		return restTemplate.exchange(
+				new RequestEntity<>(headers, HttpMethod.GET, URI.create(String.format(
+						"http://%s/uaa/v1/me", serviceHost))), User.class).getBody();
+	}
 }

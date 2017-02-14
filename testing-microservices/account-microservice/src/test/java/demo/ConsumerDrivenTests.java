@@ -13,20 +13,20 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE)
-@AutoConfigureStubRunner(ids = {"cnj:user-microservice:+:stubs:8081"}, workOffline = true)
+@AutoConfigureStubRunner(ids = { "cnj:user-microservice:+:stubs:8081" }, workOffline = true)
 public class ConsumerDrivenTests {
 
-    @Autowired
-    private UserService service;
+	@Autowired
+	private UserService service;
 
-    @Test
-    public void shouldReturnAuthenticatedUser() {
-        User actual = service.getAuthenticatedUser();
+	@Test
+	public void shouldReturnAuthenticatedUser() {
+		User actual = service.getAuthenticatedUser();
 
-        assertThat(actual).isNotNull();
-        assertThat(actual.getUsername()).matches("[A-Za-z0-9]+");
-        assertThat(actual.getFirstName()).matches("[A-Za-z]+");
-        assertThat(actual.getLastName()).matches("[A-Za-z]+");
-        assertThat(actual.getEmail()).matches("[A-Za-z0-9]+\\@[A-Za-z0-9]+\\.[A-Za-z]+");
-    }
+		assertThat(actual).isNotNull();
+		assertThat(actual.getUsername()).matches("[A-Za-z0-9]+");
+		assertThat(actual.getFirstName()).matches("[A-Za-z]+");
+		assertThat(actual.getLastName()).matches("[A-Za-z]+");
+		assertThat(actual.getEmail()).matches("[A-Za-z0-9]+\\@[A-Za-z0-9]+\\.[A-Za-z]+");
+	}
 }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
@@ -39,7 +40,9 @@
                                 <build.vcsRevision>{{TRAVIS_COMMIT}}</build.vcsRevision>
                             </deployProperties>
                             <publisher>
-                                <contextUrl>https://cloudnativejava.artifactoryonline.com/cloudnativejava</contextUrl>
+                                <contextUrl>
+                                    https://cloudnativejava.artifactoryonline.com/cloudnativejava
+                                </contextUrl>
                                 <username>${env.ARTIFACTORY_USERNAME}</username>
                                 <password>${env.ARTIFACTORY_PASSWORD}</password>
                                 <repoKey>libs-release-local</repoKey>
@@ -48,7 +51,8 @@
                             <buildInfo>
                                 <agentName>Travis CI</agentName>
                                 <buildNumber>{{TRAVIS_BUILD_NUMBER}}</buildNumber>
-                                <buildUrl>http://travis-ci.org/{{TRAVIS_REPO_SLUG}}/builds/{{TRAVIS_BUILD_ID}}
+                                <buildUrl>
+                                    http://travis-ci.org/{{TRAVIS_REPO_SLUG}}/builds/{{TRAVIS_BUILD_ID}}
                                 </buildUrl>
                                 <principal>{{USER}}</principal>
                                 <vcsRevision>{{TRAVIS_COMMIT}}</vcsRevision>
@@ -89,7 +93,8 @@
             <snapshots/>
             <id>snapshots</id>
             <name>plugins-snapshot</name>
-            <url>https://cloudnativejava.artifactoryonline.com/cloudnativejava/plugins-snapshot</url>
+            <url>https://cloudnativejava.artifactoryonline.com/cloudnativejava/plugins-snapshot
+            </url>
         </pluginRepository>
     </pluginRepositories>
 
