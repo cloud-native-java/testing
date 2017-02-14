@@ -11,7 +11,7 @@
         <groupId>cnj</groupId>
         <artifactId>testing</artifactId>
         <version>1.0.0-SNAPSHOT</version>
-    </parent>
+        </parent>
 
     <modules>
         <module>user-microservice</module>
