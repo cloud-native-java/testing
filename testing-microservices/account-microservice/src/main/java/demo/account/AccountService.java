@@ -9,21 +9,21 @@ import java.util.List;
 @Service
 public class AccountService {
 
-	private AccountRepository accountRepository;
-	private UserService userService;
+ private AccountRepository accountRepository;
+ private UserService userService;
 
-	public AccountService(AccountRepository accountRepository, UserService userService) {
-		this.accountRepository = accountRepository;
-		this.userService = userService;
-	}
+ public AccountService(AccountRepository accountRepository, UserService userService) {
+  this.accountRepository = accountRepository;
+  this.userService = userService;
+ }
 
-	public List<Account> getUserAccounts() {
-		List<Account> accounts = null;
-		User user = userService.getAuthenticatedUser();
+ public List<Account> getUserAccounts() {
+  List<Account> accounts = null;
+  User user = userService.getAuthenticatedUser();
 
-		if (user != null)
-			accounts = accountRepository.findAccountsByUsername(user.getUsername());
+  if (user != null)
+   accounts = accountRepository.findAccountsByUsername(user.getUsername());
 
-		return accounts;
-	}
+  return accounts;
+ }
 }

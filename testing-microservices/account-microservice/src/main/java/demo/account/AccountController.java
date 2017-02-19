@@ -12,16 +12,16 @@ import java.util.Optional;
 @RequestMapping(path = "/v1")
 public class AccountController {
 
-	private AccountService accountService;
+ private AccountService accountService;
 
-	public AccountController(AccountService accountService) {
-		this.accountService = accountService;
-	}
+ public AccountController(AccountService accountService) {
+  this.accountService = accountService;
+ }
 
-	@RequestMapping(path = "/accounts")
-	public ResponseEntity getUserAccount() throws Exception {
-		return Optional.ofNullable(accountService.getUserAccounts())
-				.map(a -> new ResponseEntity<List<Account>>(a, HttpStatus.OK))
-				.orElseThrow(() -> new Exception("Accounts for user do not exist"));
-	}
+ @RequestMapping(path = "/accounts")
+ public ResponseEntity getUserAccount() throws Exception {
+  return Optional.ofNullable(accountService.getUserAccounts())
+    .map(a -> new ResponseEntity<List<Account>>(a, HttpStatus.OK))
+    .orElseThrow(() -> new Exception("Accounts for user do not exist"));
+ }
 }

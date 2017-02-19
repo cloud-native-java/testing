@@ -15,18 +15,18 @@ import static org.mockito.BDDMockito.given;
 @SpringBootTest
 public class ApplicationTests {
 
-	@MockBean
-	private UserService userService;
+ @MockBean
+ private UserService userService;
 
-	@Test
-	public void userServiceShouldReturnMockResponse() {
-		given(this.userService.getAuthenticatedUser()).willReturn(
-				new User(0L, "bobbyd", "Bob", "Dylan"));
+ @Test
+ public void userServiceShouldReturnMockResponse() {
+  given(this.userService.getAuthenticatedUser()).willReturn(
+    new User(0L, "bobbyd", "Bob", "Dylan"));
 
-		User actual = userService.getAuthenticatedUser();
-		assertThat(actual).isNotNull();
-		assertThat(actual.getFirstName()).isEqualTo("Bob");
-		assertThat(actual.getLastName()).isEqualTo("Dylan");
-	}
+  User actual = userService.getAuthenticatedUser();
+  assertThat(actual).isNotNull();
+  assertThat(actual.getFirstName()).isEqualTo("Bob");
+  assertThat(actual.getLastName()).isEqualTo("Dylan");
+ }
 
 }

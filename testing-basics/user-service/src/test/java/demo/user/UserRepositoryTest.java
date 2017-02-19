@@ -14,30 +14,30 @@ import static org.assertj.core.api.Assertions.assertThat;
 @DataJpaTest
 public class UserRepositoryTest {
 
-	@Autowired
-	private UserRepository userRepository;
+ @Autowired
+ private UserRepository userRepository;
 
-	@Autowired
-	private TestEntityManager entityManager;
+ @Autowired
+ private TestEntityManager entityManager;
 
-	@Before
-	public void setUp() {
-		this.entityManager.persist(new User("jack", "Jack", "Frost", "jfrost@example.com"));
-	}
+ @Before
+ public void setUp() {
+  this.entityManager.persist(new User("jack", "Jack", "Frost", "jfrost@example.com"));
+ }
 
-	@Test
-	public void findUserShouldReturnUser() throws Exception {
-		User actual = this.userRepository.findUserByUsername("jack");
-		assertThat(actual).isNotNull();
-		assertThat(actual.getUsername()).isEqualTo("jack");
-		assertThat(actual.getFirstName()).isEqualTo("Jack");
-		assertThat(actual.getLastName()).isEqualTo("Frost");
-		assertThat(actual.getEmail()).isEqualTo("jfrost@example.com");
-	}
+ @Test
+ public void findUserShouldReturnUser() throws Exception {
+  User actual = this.userRepository.findUserByUsername("jack");
+  assertThat(actual).isNotNull();
+  assertThat(actual.getUsername()).isEqualTo("jack");
+  assertThat(actual.getFirstName()).isEqualTo("Jack");
+  assertThat(actual.getLastName()).isEqualTo("Frost");
+  assertThat(actual.getEmail()).isEqualTo("jfrost@example.com");
+ }
 
-	@Test
-	public void findUserShouldReturnNull() throws Exception {
-		User user = this.userRepository.findUserByUsername("jill");
-		assertThat(user).isNull();
-	}
+ @Test
+ public void findUserShouldReturnNull() throws Exception {
+  User user = this.userRepository.findUserByUsername("jill");
+  assertThat(user).isNull();
+ }
 }

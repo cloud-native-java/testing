@@ -18,30 +18,30 @@ import static org.mockito.BDDMockito.given;
 @WebMvcTest(UserController.class)
 public class UserServiceBase {
 
-	@MockBean
-	private UserService userService;
+ @MockBean
+ private UserService userService;
 
-	@MockBean
-	private AuthService authService;
+ @MockBean
+ private AuthService authService;
 
-	@Before
-	public void setup() {
+ @Before
+ public void setup() {
 
-		User actual = new User("user", "Jack", "Frost", "jfrost@example.com");
-		actual.setLastModified(12345L);
-		actual.setCreatedAt(12345L);
-		actual.setId(0L);
-		given(this.userService.getUserByPrincipal(new PrincipalImpl("user"))).willReturn(
-				actual);
+  User actual = new User("user", "Jack", "Frost", "jfrost@example.com");
+  actual.setLastModified(12345L);
+  actual.setCreatedAt(12345L);
+  actual.setId(0L);
+  given(this.userService.getUserByPrincipal(new PrincipalImpl("user"))).willReturn(
+    actual);
 
-		// TODO: Mock authenticated user
-		given(this.authService.getAuthenticatedUser(null)).willReturn(
-				new PrincipalImpl("user"));
+  // TODO: Mock authenticated user
+  given(this.authService.getAuthenticatedUser(null)).willReturn(
+    new PrincipalImpl("user"));
 
-		RestAssuredMockMvc.standaloneSetup(new UserController(userService, authService));
-	}
+  RestAssuredMockMvc.standaloneSetup(new UserController(userService, authService));
+ }
 
-	public void assertThatRejectionReasonIsNull(Object rejectionReason) {
-		assert rejectionReason == null;
-	}
+ public void assertThatRejectionReasonIsNull(Object rejectionReason) {
+  assert rejectionReason == null;
+ }
 }

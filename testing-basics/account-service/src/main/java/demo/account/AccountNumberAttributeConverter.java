@@ -5,16 +5,16 @@ import javax.persistence.Converter;
 
 @Converter(autoApply = true)
 public class AccountNumberAttributeConverter implements
-		AttributeConverter<AccountNumber, String> {
+  AttributeConverter<AccountNumber, String> {
 
-	@Override
-	public String convertToDatabaseColumn(AccountNumber attribute) {
-		return attribute.toString();
-	}
+ @Override
+ public String convertToDatabaseColumn(AccountNumber attribute) {
+  return attribute.toString();
+ }
 
-	@Override
-	public AccountNumber convertToEntityAttribute(String dbData) {
-		return new AccountNumber(dbData);
-	}
+ @Override
+ public AccountNumber convertToEntityAttribute(String dbData) {
+  return new AccountNumber(dbData);
+ }
 
 }

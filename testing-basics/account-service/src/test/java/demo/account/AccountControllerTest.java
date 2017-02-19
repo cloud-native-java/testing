@@ -20,20 +20,20 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WebMvcTest(AccountController.class)
 public class AccountControllerTest {
 
-	@Autowired
-	private MockMvc mvc;
+ @Autowired
+ private MockMvc mvc;
 
-	@MockBean
-	private AccountService accountService;
+ @MockBean
+ private AccountService accountService;
 
-	@Test
-	public void getUserAccountsShouldReturnAccounts() throws Exception {
-		String content = "[{\"username\": \"user\", \"accountNumber\": \"123456789\"}]";
+ @Test
+ public void getUserAccountsShouldReturnAccounts() throws Exception {
+  String content = "[{\"username\": \"user\", \"accountNumber\": \"123456789\"}]";
 
-		given(this.accountService.getUserAccounts()).willReturn(
-				Collections.singletonList(new Account("user", "123456789")));
+  given(this.accountService.getUserAccounts()).willReturn(
+    Collections.singletonList(new Account("user", "123456789")));
 
-		this.mvc.perform(get("/v1/accounts").accept(MediaType.APPLICATION_JSON))
-				.andExpect(status().isOk()).andExpect(content().json(content));
-	}
+  this.mvc.perform(get("/v1/accounts").accept(MediaType.APPLICATION_JSON))
+    .andExpect(status().isOk()).andExpect(content().json(content));
+ }
 }
