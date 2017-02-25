@@ -16,6 +16,7 @@
     <modules>
         <module>account-service</module>
         <module>user-service</module>
+        <module>basics</module>
     </modules>
 
 </project>
