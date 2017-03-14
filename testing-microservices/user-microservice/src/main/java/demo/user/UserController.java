@@ -24,8 +24,8 @@ public class UserController {
  public ResponseEntity<User> me(Principal principal) throws Exception {
   return Optional
     .ofNullable(authService.getAuthenticatedUser(principal))
-    .map(
-      p -> new ResponseEntity<User>(userService.getUserByPrincipal(p),
-        HttpStatus.OK)).orElse(new ResponseEntity<User>(HttpStatus.UNAUTHORIZED));
+    .map(p ->
+      new ResponseEntity<User>(userService.getUserByPrincipal(p), HttpStatus.OK))
+    .orElse(new ResponseEntity<User>(HttpStatus.UNAUTHORIZED));
  }
 }
