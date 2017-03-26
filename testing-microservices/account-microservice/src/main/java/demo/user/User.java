@@ -3,12 +3,19 @@ package demo.user;
 import java.io.Serializable;
 
 public class User implements Serializable {
+
  private Long id;
+
  private String username;
+
  private String firstName;
+
  private String lastName;
+
  private String email;
+
  private Long createdAt;
+
  private Long lastModified;
 
  public User() {

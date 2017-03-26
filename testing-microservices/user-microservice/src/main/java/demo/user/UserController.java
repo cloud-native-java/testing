@@ -13,6 +13,7 @@ import java.util.Optional;
 public class UserController {
 
  private UserService userService;
+
  private AuthService authService;
 
  public UserController(UserService userService, AuthService authService) {
@@ -23,9 +24,9 @@ public class UserController {
  @RequestMapping(path = "/me")
  public ResponseEntity<User> me(Principal principal) throws Exception {
   return Optional
-    .ofNullable(authService.getAuthenticatedUser(principal))
-    .map(p ->
-      new ResponseEntity<User>(userService.getUserByPrincipal(p), HttpStatus.OK))
-    .orElse(new ResponseEntity<User>(HttpStatus.UNAUTHORIZED));
+   .ofNullable(authService.getAuthenticatedUser(principal))
+   .map(
+    p -> new ResponseEntity<User>(userService.getUserByPrincipal(p),
+     HttpStatus.OK)).orElse(new ResponseEntity<User>(HttpStatus.UNAUTHORIZED));
  }
 }

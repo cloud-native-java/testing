@@ -26,7 +26,7 @@ public class UserService {
   HttpHeaders headers = new HttpHeaders();
   headers.setContentType(MediaType.APPLICATION_JSON);
   return restTemplate.exchange(
-    new RequestEntity<>(headers, HttpMethod.GET, URI.create(String.format(
-      "http://%s/uaa/v1/me", serviceHost))), User.class).getBody();
+   new RequestEntity<>(headers, HttpMethod.GET, URI.create(String.format(
+    "http://%s/uaa/v1/me", serviceHost))), User.class).getBody();
  }
 }

@@ -27,6 +27,7 @@ public class ConsumerDrivenTests {
   assertThat(actual.getUsername()).matches("[A-Za-z0-9]+");
   assertThat(actual.getFirstName()).matches("[A-Za-z]+");
   assertThat(actual.getLastName()).matches("[A-Za-z]+");
-  assertThat(actual.getEmail()).matches("[A-Za-z0-9]+\\@[A-Za-z0-9]+\\.[A-Za-z]+");
+  assertThat(actual.getEmail()).matches(
+   "[A-Za-z0-9]+\\@[A-Za-z0-9]+\\.[A-Za-z]+");
  }
 }

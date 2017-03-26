@@ -21,7 +21,7 @@ public class ApplicationTests {
  @Test
  public void userServiceShouldReturnMockResponse() {
   given(this.userService.getAuthenticatedUser()).willReturn(
-    new User(0L, "bobbyd", "Bob", "Dylan"));
+   new User(0L, "bobbyd", "Bob", "Dylan"));
 
   User actual = userService.getAuthenticatedUser();
   assertThat(actual).isNotNull();

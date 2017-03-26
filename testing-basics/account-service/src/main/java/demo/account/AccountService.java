@@ -10,9 +10,11 @@ import java.util.List;
 public class AccountService {
 
  private AccountRepository accountRepository;
+
  private UserService userService;
 
- public AccountService(AccountRepository accountRepository, UserService userService) {
+ public AccountService(AccountRepository accountRepository,
+  UserService userService) {
   this.accountRepository = accountRepository;
   this.userService = userService;
  }

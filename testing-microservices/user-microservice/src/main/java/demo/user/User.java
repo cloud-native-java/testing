@@ -9,9 +9,13 @@ import java.security.Principal;
 public class User extends BaseEntity implements Principal {
 
  private Long id;
+
  private String username;
+
  private String firstName;
+
  private String lastName;
+
  private String email;
 
  public User() {
@@ -80,8 +84,8 @@ public class User extends BaseEntity implements Principal {
 
  @Override
  public String toString() {
-  return "User{" + "id=" + id + ", username='" + username + '\'' + ", firstName='"
-    + firstName + '\'' + ", lastName='" + lastName + '\'' + ", email='" + email
-    + '\'' + "} " + super.toString();
+  return "User{" + "id=" + id + ", username='" + username + '\''
+   + ", firstName='" + firstName + '\'' + ", lastName='" + lastName + '\''
+   + ", email='" + email + '\'' + "} " + super.toString();
  }
 }

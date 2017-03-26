@@ -32,14 +32,14 @@ public class UserControllerTest {
  public void getUserShouldReturnUser() throws Exception {
   String content = "{\"username\": \"user\", \"firstName\": \"Jack\", \"lastName\": \"Frost\", \"email\": \"jfrost@example.com\"}";
 
-  given(this.userService.getUserByPrincipal(new PrincipalImpl("user"))).willReturn(
-    new User("user", "Jack", "Frost", "jfrost@example.com"));
+  given(this.userService.getUserByPrincipal(new PrincipalImpl("user")))
+   .willReturn(new User("user", "Jack", "Frost", "jfrost@example.com"));
 
   // TODO: Mock authenticated user
   given(this.authService.getAuthenticatedUser(null)).willReturn(
-    new PrincipalImpl("user"));
+   new PrincipalImpl("user"));
 
   this.mvc.perform(get("/uaa/v1/me").accept(MediaType.APPLICATION_JSON))
-    .andExpect(status().isOk()).andExpect(content().json(content));
+   .andExpect(status().isOk()).andExpect(content().json(content));
  }
 }

@@ -44,15 +44,16 @@ public class UserTests {
  @Test
  public void deserializeJson() throws Exception {
   String content = "{\"username\": \"user\", \"firstName\": \"Jack\", "
-    + "\"lastName\": \"Frost\", \"email\": \"jfrost@example.com\"}";
+   + "\"lastName\": \"Frost\", \"email\": \"jfrost@example.com\"}";
 
   assertThat(this.json.parse(content)).isEqualTo(
-    new User("user", "Jack", "Frost", "jfrost@example.com"));
+   new User("user", "Jack", "Frost", "jfrost@example.com"));
   assertThat(this.json.parseObject(content).getUsername()).isEqualTo("user");
  }
 
  private void assertJsonPropertyEquals(String key, String value)
-   throws java.io.IOException {
-  assertThat(this.json.write(user)).extractingJsonPathStringValue(key).isEqualTo(value);
+  throws java.io.IOException {
+  assertThat(this.json.write(user)).extractingJsonPathStringValue(key)
+   .isEqualTo(value);
  }
 }

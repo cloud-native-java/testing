@@ -6,8 +6,9 @@ import demo.data.BaseEntity;
 import javax.persistence.*;
 
 /**
- * The {@link Customer} entity is a root object in
- * the customer bounded context.
+ * The {@link Customer} entity is a root
+ * object in the customer bounded
+ * context.
  *
  * @author Kenny Bastani
  * @author Josh Long
@@ -16,15 +17,20 @@ import javax.persistence.*;
 public class Customer extends BaseEntity {
 
  private Long id;
+
  private String firstName;
+
  private String lastName;
+
  private String email;
+
  private Account account;
 
  public Customer() {
  }
 
- public Customer(String firstName, String lastName, String email, Account account) {
+ public Customer(String firstName, String lastName, String email,
+  Account account) {
   this.firstName = firstName;
   this.lastName = lastName;
   this.email = email;
@@ -76,8 +82,8 @@ public class Customer extends BaseEntity {
 
  @Override
  public String toString() {
-  return "Customer{" + "id=" + id + ", firstName='" + firstName + '\'' + ", lastName='"
-    + lastName + '\'' + ", email='" + email + '\'' + ", account=" + account + "} "
-    + super.toString();
+  return "Customer{" + "id=" + id + ", firstName='" + firstName + '\''
+   + ", lastName='" + lastName + '\'' + ", email='" + email + '\''
+   + ", account=" + account + "} " + super.toString();
  }
 }

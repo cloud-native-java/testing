@@ -9,7 +9,8 @@ import java.security.Principal;
 public class AuthService {
 
  public Principal getAuthenticatedUser(Principal principal) {
-  // Retrieves a dummy user principal for this example project
+  // Retrieves a dummy user principal
+  // for this example project
   return principal == null ? new PrincipalImpl("user") : principal;
  }
 }

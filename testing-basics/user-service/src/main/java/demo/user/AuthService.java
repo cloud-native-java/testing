@@ -9,7 +9,8 @@ import java.security.Principal;
 public class AuthService {
 
  public Principal getAuthenticatedUser(Principal principal) {
-  // TODO: Replace with actual implementation
+  // TODO: Replace with actual
+  // implementation
   return principal == null ? new PrincipalImpl("user") : principal;
  }
 }

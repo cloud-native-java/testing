@@ -5,7 +5,7 @@ import javax.persistence.Converter;
 
 @Converter(autoApply = true)
 public class AccountNumberAttributeConverter implements
-  AttributeConverter<AccountNumber, String> {
+ AttributeConverter<AccountNumber, String> {
 
  @Override
  public String convertToDatabaseColumn(AccountNumber attribute) {

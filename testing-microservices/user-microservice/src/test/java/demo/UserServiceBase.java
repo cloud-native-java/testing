@@ -31,14 +31,15 @@ public class UserServiceBase {
   actual.setLastModified(12345L);
   actual.setCreatedAt(12345L);
   actual.setId(0L);
-  given(this.userService.getUserByPrincipal(new PrincipalImpl("user"))).willReturn(
-    actual);
+  given(this.userService.getUserByPrincipal(new PrincipalImpl("user")))
+   .willReturn(actual);
 
   // TODO: Mock authenticated user
   given(this.authService.getAuthenticatedUser(null)).willReturn(
-    new PrincipalImpl("user"));
+   new PrincipalImpl("user"));
 
-  RestAssuredMockMvc.standaloneSetup(new UserController(userService, authService));
+  RestAssuredMockMvc.standaloneSetup(new UserController(userService,
+   authService));
  }
 
  public void assertThatRejectionReasonIsNull(Object rejectionReason) {

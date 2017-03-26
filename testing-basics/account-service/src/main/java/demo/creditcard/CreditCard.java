@@ -8,6 +8,7 @@ import javax.persistence.*;
 public class CreditCard extends BaseEntity {
 
  private Long id;
+
  private String number;
 
  @Enumerated(EnumType.STRING)
@@ -50,7 +51,7 @@ public class CreditCard extends BaseEntity {
  @Override
  public String toString() {
   return "CreditCard{" + "id=" + id + ", number='"
-    + number.replaceAll("([\\d]{4})(?!$)", "****-") + '\'' + ", type='" + type + '\''
-    + '}';
+   + number.replaceAll("([\\d]{4})(?!$)", "****-") + '\'' + ", type='" + type
+   + '\'' + '}';
  }
 }

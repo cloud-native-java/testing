@@ -38,8 +38,8 @@ public class BaseEntity {
 
  @Override
  public String toString() {
-  return "BaseEntity{" + "createdAt=" + createdAt + ", lastModified=" + lastModified
-    + '}';
+  return "BaseEntity{" + "createdAt=" + createdAt + ", lastModified="
+   + lastModified + '}';
  }
 
  @Override
@@ -51,10 +51,11 @@ public class BaseEntity {
 
   BaseEntity that = (BaseEntity) o;
 
-  if (createdAt != null ? !createdAt.equals(that.createdAt) : that.createdAt != null)
+  if (createdAt != null ? !createdAt.equals(that.createdAt)
+   : that.createdAt != null)
    return false;
   return lastModified != null ? lastModified.equals(that.lastModified)
-    : that.lastModified == null;
+   : that.lastModified == null;
 
  }
 

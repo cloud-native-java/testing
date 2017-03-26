@@ -34,8 +34,8 @@ public class AccountTests {
   account.setLastModified(12346L);
 
   // Generate account address
-  Address address = new Address("111 Pine St", "Apt D", "CA", "San Francisco", "US",
-    AddressType.BILLING, 94110);
+  Address address = new Address("111 Pine St", "Apt D", "CA", "San Francisco",
+   "US", AddressType.BILLING, 94110);
   address.setId(0L);
   address.setCreatedAt(12345L);
   address.setLastModified(12346L);
@@ -57,17 +57,18 @@ public class AccountTests {
   assertThat(this.json.write(account)).isEqualToJson("account.json");
   assertThat(this.json.write(account)).hasJsonPathStringValue("@.username");
 
-  assertThat(this.json.write(account)).extractingJsonPathStringValue("@.username")
-    .isEqualTo("user");
+  assertThat(this.json.write(account)).extractingJsonPathStringValue(
+   "@.username").isEqualTo("user");
 
-  assertThat(this.json.write(account)).extractingJsonPathStringValue("@.accountNumber")
-    .isEqualTo("123456789");
+  assertThat(this.json.write(account)).extractingJsonPathStringValue(
+   "@.accountNumber").isEqualTo("123456789");
  }
 
  @Test
  public void deserializeJson() throws Exception {
   String content = "{\"username\": \"user\", \"accountNumber\": \"123456789\"}";
-  assertThat(this.json.parse(content)).isEqualTo(new Account("user", "123456789"));
+  assertThat(this.json.parse(content)).isEqualTo(
+   new Account("user", "123456789"));
   assertThat(this.json.parseObject(content).getUsername()).isEqualTo("user");
  }
 }

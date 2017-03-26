@@ -35,20 +35,21 @@ public class CreditCardTests {
   assertThat(this.json.write(creditCard)).isEqualToJson("creditcard.json");
   assertThat(this.json.write(creditCard)).hasJsonPathStringValue("@.number");
 
-  assertThat(this.json.write(creditCard)).extractingJsonPathStringValue("@.number")
-    .isEqualTo("1111-1111-1111-1111");
+  assertThat(this.json.write(creditCard)).extractingJsonPathStringValue(
+   "@.number").isEqualTo("1111-1111-1111-1111");
 
-  assertThat(this.json.write(creditCard)).extractingJsonPathStringValue("@.type")
-    .isEqualTo("VISA");
+  assertThat(this.json.write(creditCard)).extractingJsonPathStringValue(
+   "@.type").isEqualTo("VISA");
  }
 
  @Test
  public void deserializeJson() throws Exception {
-  String content = "{\n" + "  \"createdAt\": 12345,\n" + "  \"lastModified\": 12346,\n"
-    + "  \"id\": 0,\n" + "  \"number\": \"1111-1111-1111-1111\",\n"
-    + "  \"type\": \"VISA\"\n" + "}";
+  String content = "{\n" + "  \"createdAt\": 12345,\n"
+   + "  \"lastModified\": 12346,\n" + "  \"id\": 0,\n"
+   + "  \"number\": \"1111-1111-1111-1111\",\n" + "  \"type\": \"VISA\"\n"
+   + "}";
   assertThat(this.json.parse(content)).isEqualTo(creditCard);
   assertThat(this.json.parseObject(content).getNumber()).isEqualTo(
-    "1111-1111-1111-1111");
+   "1111-1111-1111-1111");
  }
 }

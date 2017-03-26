@@ -31,11 +31,12 @@ public class UserServiceTests {
 
  @Test
  public void getAuthenticatedUserShouldReturnUser() {
-  // Mock the expected response from the user
+  // Mock the expected response from the
+  // user
   // service
-  this.server.expect(requestTo(String.format("http://%s/uaa/v1/me", serviceHost)))
-    .andRespond(
-      withSuccess(getClassPathResource("user.json"), MediaType.APPLICATION_JSON));
+  this.server.expect(
+   requestTo(String.format("http://%s/uaa/v1/me", serviceHost))).andRespond(
+   withSuccess(getClassPathResource("user.json"), MediaType.APPLICATION_JSON));
 
   User user = userService.getAuthenticatedUser();
 

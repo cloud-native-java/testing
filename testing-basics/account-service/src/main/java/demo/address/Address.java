@@ -8,11 +8,17 @@ import javax.persistence.*;
 public class Address extends BaseEntity {
 
  private Long id;
+
  private String street1;
+
  private String street2;
+
  private String state;
+
  private String city;
+
  private String country;
+
  private Integer zipCode;
 
  @Enumerated(EnumType.STRING)
@@ -22,7 +28,7 @@ public class Address extends BaseEntity {
  }
 
  public Address(String street1, String street2, String state, String city,
-   String country, AddressType addressType, Integer zipCode) {
+  String country, AddressType addressType, Integer zipCode) {
   this.street1 = street1;
   this.street2 = street2;
   this.state = state;
@@ -100,9 +106,9 @@ public class Address extends BaseEntity {
 
  @Override
  public String toString() {
-  return "Address{" + "id=" + id + ", street1='" + street1 + '\'' + ", street2='"
-    + street2 + '\'' + ", state='" + state + '\'' + ", city='" + city + '\''
-    + ", country='" + country + '\'' + ", addressType='" + addressType + '\''
-    + ", zipCode=" + zipCode + '}';
+  return "Address{" + "id=" + id + ", street1='" + street1 + '\''
+   + ", street2='" + street2 + '\'' + ", state='" + state + '\'' + ", city='"
+   + city + '\'' + ", country='" + country + '\'' + ", addressType='"
+   + addressType + '\'' + ", zipCode=" + zipCode + '}';
  }
 }

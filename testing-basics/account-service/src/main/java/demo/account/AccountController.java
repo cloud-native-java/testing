@@ -21,7 +21,7 @@ public class AccountController {
  @RequestMapping(path = "/accounts")
  public ResponseEntity getUserAccount() throws Exception {
   return Optional.ofNullable(accountService.getUserAccounts())
-    .map(a -> new ResponseEntity<List<Account>>(a, HttpStatus.OK))
-    .orElseThrow(() -> new Exception("Accounts for user do not exist"));
+   .map(a -> new ResponseEntity<List<Account>>(a, HttpStatus.OK))
+   .orElseThrow(() -> new Exception("Accounts for user do not exist"));
  }
 }

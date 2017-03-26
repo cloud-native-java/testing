@@ -22,7 +22,8 @@ public class UserRepositoryTest {
 
  @Before
  public void setUp() {
-  this.entityManager.persist(new User("jack", "Jack", "Frost", "jfrost@example.com"));
+  this.entityManager.persist(new User("jack", "Jack", "Frost",
+   "jfrost@example.com"));
  }
 
  @Test

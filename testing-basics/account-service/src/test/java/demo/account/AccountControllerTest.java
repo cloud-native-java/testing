@@ -31,9 +31,9 @@ public class AccountControllerTest {
   String content = "[{\"username\": \"user\", \"accountNumber\": \"123456789\"}]";
 
   given(this.accountService.getUserAccounts()).willReturn(
-    Collections.singletonList(new Account("user", "123456789")));
+   Collections.singletonList(new Account("user", "123456789")));
 
   this.mvc.perform(get("/v1/accounts").accept(MediaType.APPLICATION_JSON))
-    .andExpect(status().isOk()).andExpect(content().json(content));
+   .andExpect(status().isOk()).andExpect(content().json(content));
  }
 }

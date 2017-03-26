@@ -14,7 +14,8 @@ public class AccountNumberTests {
  public ExpectedException thrown = ExpectedException.none();
 
  @Test
- public void createWhenAccountNumberIsNullShouldThrowException() throws Exception {
+ public void createWhenAccountNumberIsNullShouldThrowException()
+  throws Exception {
   this.thrown.expect(IllegalArgumentException.class);
   this.thrown.expectMessage("Account Number must not be null");
   new AccountNumber(null);
@@ -22,7 +23,7 @@ public class AccountNumberTests {
 
  @Test
  public void createWhenAccountNumberIsMoreThan9CharsShouldThrowException()
-   throws Exception {
+  throws Exception {
   this.thrown.expect(IllegalArgumentException.class);
   this.thrown.expectMessage("Account Number must be exactly 9 characters");
   new AccountNumber("1234567890");
@@ -30,7 +31,7 @@ public class AccountNumberTests {
 
  @Test
  public void createWhenAccountNumberIsLessThan9CharsShouldThrowException()
-   throws Exception {
+  throws Exception {
   this.thrown.expect(IllegalArgumentException.class);
   this.thrown.expectMessage("Account Number must be exactly 9 characters");
   new AccountNumber("12345678");
@@ -48,7 +49,7 @@ public class AccountNumberTests {
   AccountNumber accountNumber2 = new AccountNumber(ACCOUNT_NUMBER);
   AccountNumber accountNumber3 = new AccountNumber("000000000");
   assertThat(accountNumber1.hashCode()).isEqualTo(accountNumber2.hashCode());
-  assertThat(accountNumber1).isEqualTo(accountNumber1).isEqualTo(accountNumber2)
-    .isNotEqualTo(accountNumber3);
+  assertThat(accountNumber1).isEqualTo(accountNumber1)
+   .isEqualTo(accountNumber2).isNotEqualTo(accountNumber3);
  }
 }

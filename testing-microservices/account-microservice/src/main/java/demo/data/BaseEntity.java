@@ -9,9 +9,9 @@ import javax.persistence.EntityListeners;
 import javax.persistence.MappedSuperclass;
 
 /**
- * An entity base class that is used for auditing
- * purposes in the {@link Account} bounded
- * context.
+ * An entity base class that is used for
+ * auditing purposes in the
+ * {@link Account} bounded context.
  *
  * @author Kenny Bastani
  * @author Josh Long
@@ -47,8 +47,8 @@ public class BaseEntity {
 
  @Override
  public String toString() {
-  return "BaseEntity{" + "createdAt=" + createdAt + ", lastModified=" + lastModified
-    + '}';
+  return "BaseEntity{" + "createdAt=" + createdAt + ", lastModified="
+   + lastModified + '}';
  }
 
  @Override
@@ -60,10 +60,11 @@ public class BaseEntity {
 
   BaseEntity that = (BaseEntity) o;
 
-  if (createdAt != null ? !createdAt.equals(that.createdAt) : that.createdAt != null)
+  if (createdAt != null ? !createdAt.equals(that.createdAt)
+   : that.createdAt != null)
    return false;
   return lastModified != null ? lastModified.equals(that.lastModified)
-    : that.lastModified == null;
+   : that.lastModified == null;
 
  }
 
