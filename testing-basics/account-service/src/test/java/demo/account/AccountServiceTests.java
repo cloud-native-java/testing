@@ -18,6 +18,7 @@ import static org.mockito.BDDMockito.given;
 public class AccountServiceTests {
 
  @MockBean
+ // <1>
  private UserService userService;
 
  @MockBean
@@ -27,19 +28,19 @@ public class AccountServiceTests {
 
  @Before
  public void before() {
-  accountService = new AccountService(accountRepository, userService);
+  accountService = new AccountService(accountRepository, userService); // <2>
  }
 
  @Test
  public void getUserAccountsReturnsSingleAccount() throws Exception {
   given(this.accountRepository.findAccountsByUsername("user")).willReturn(
    Collections
-    .singletonList(new Account("user", new AccountNumber("123456789"))));
+    .singletonList(new Account("user", new AccountNumber("123456789")))); // <3>
 
   given(this.userService.getAuthenticatedUser()).willReturn(
-   new User(0L, "user", "John", "Doe"));
+   new User(0L, "user", "John", "Doe")); // <4>
 
-  List<Account> actual = accountService.getUserAccounts();
+  List<Account> actual = accountService.getUserAccounts();// <5>
 
   assertThat(actual).size().isEqualTo(1);
   assertThat(actual.get(0).getUsername()).isEqualTo("user");

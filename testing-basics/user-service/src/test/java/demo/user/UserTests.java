@@ -17,6 +17,7 @@ public class UserTests {
  private User user;
 
  @Autowired
+ // <1>
  private JacksonTester<User> json;
 
  @Before
@@ -30,18 +31,6 @@ public class UserTests {
  }
 
  @Test
- public void serializeJson() throws Exception {
-  assertThat(this.json.write(user)).isEqualTo("user.json");
-  assertThat(this.json.write(user)).isEqualToJson("user.json");
-  assertThat(this.json.write(user)).hasJsonPathStringValue("@.username");
-
-  assertJsonPropertyEquals("@.username", "user");
-  assertJsonPropertyEquals("@.firstName", "Jack");
-  assertJsonPropertyEquals("@.lastName", "Frost");
-  assertJsonPropertyEquals("@.email", "jfrost@example.com");
- }
-
- @Test
  public void deserializeJson() throws Exception {
   String content = "{\"username\": \"user\", \"firstName\": \"Jack\", "
    + "\"lastName\": \"Frost\", \"email\": \"jfrost@example.com\"}";
@@ -49,6 +38,20 @@ public class UserTests {
   assertThat(this.json.parse(content)).isEqualTo(
    new User("user", "Jack", "Frost", "jfrost@example.com"));
   assertThat(this.json.parseObject(content).getUsername()).isEqualTo("user");
+ }
+
+ @Test
+ public void serializeJson() throws Exception {
+  // <2>
+  assertThat(this.json.write(user)).isEqualTo("user.json");
+  assertThat(this.json.write(user)).isEqualToJson("user.json");
+  assertThat(this.json.write(user)).hasJsonPathStringValue("@.username");
+
+  // <3>
+  assertJsonPropertyEquals("@.username", "user");
+  assertJsonPropertyEquals("@.firstName", "Jack");
+  assertJsonPropertyEquals("@.lastName", "Frost");
+  assertJsonPropertyEquals("@.email", "jfrost@example.com");
  }
 
  private void assertJsonPropertyEquals(String key, String value)

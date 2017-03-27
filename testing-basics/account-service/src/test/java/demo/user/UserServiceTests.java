@@ -18,6 +18,7 @@ import static org.springframework.test.web.client.response.MockRestResponseCreat
 @RunWith(SpringRunner.class)
 @RestClientTest({ UserService.class })
 @AutoConfigureWebClient(registerRestTemplate = true)
+// <1>
 public class UserServiceTests {
 
  @Value("${user-service.host:user-service}")
@@ -31,12 +32,10 @@ public class UserServiceTests {
 
  @Test
  public void getAuthenticatedUserShouldReturnUser() {
-  // Mock the expected response from the
-  // user
-  // service
   this.server.expect(
    requestTo(String.format("http://%s/uaa/v1/me", serviceHost))).andRespond(
-   withSuccess(getClassPathResource("user.json"), MediaType.APPLICATION_JSON));
+   withSuccess(new ClassPathResource("user.json", getClass()),
+    MediaType.APPLICATION_JSON)); // <2>
 
   User user = userService.getAuthenticatedUser();
 
@@ -48,7 +47,4 @@ public class UserServiceTests {
   assertThat(user.getId()).isEqualTo(0L);
  }
 
- private ClassPathResource getClassPathResource(String path) {
-  return new ClassPathResource(path, getClass());
- }
 }

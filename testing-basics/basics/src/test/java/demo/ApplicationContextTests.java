@@ -16,8 +16,8 @@ public class ApplicationContextTests {
  private ApplicationContext applicationContext;
 
  @Test
- public void confirmContextLoaded() throws Throwable {
-  Assert.assertNotNull("the application context " + "should have been loaded.",
+ public void contextLoads() throws Throwable {
+  Assert.assertNotNull("the application context should have loaded.",
    this.applicationContext);
  }
 }

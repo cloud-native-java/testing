@@ -21,18 +21,20 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class AccountControllerTest {
 
  @Autowired
- private MockMvc mvc;
+ private MockMvc mvc; // <1>
 
  @MockBean
- private AccountService accountService;
+ private AccountService accountService; // <2>
 
  @Test
  public void getUserAccountsShouldReturnAccounts() throws Exception {
   String content = "[{\"username\": \"user\", \"accountNumber\": \"123456789\"}]";
 
+  // <3>
   given(this.accountService.getUserAccounts()).willReturn(
    Collections.singletonList(new Account("user", "123456789")));
 
+  // <4>
   this.mvc.perform(get("/v1/accounts").accept(MediaType.APPLICATION_JSON))
    .andExpect(status().isOk()).andExpect(content().json(content));
  }

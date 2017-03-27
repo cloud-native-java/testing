@@ -13,11 +13,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE)
-@AutoConfigureStubRunner(ids = { "cnj:user-microservice:+:stubs:8081" }, workOffline = true)
+@AutoConfigureStubRunner(ids = { "cnj:user-microservice:+:stubs:8081" }, workOffline = true) // <1>
 public class ConsumerDrivenTests {
 
  @Autowired
- private UserService service;
+ private UserService service; // <2>
 
  @Test
  public void shouldReturnAuthenticatedUser() {
