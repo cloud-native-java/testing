@@ -12,13 +12,15 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.client.MockRestServiceServer;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.springframework.test.web.client.match.MockRestRequestMatchers.requestTo;
-import static org.springframework.test.web.client.response.MockRestResponseCreators.withSuccess;
+import static org.springframework.test.web.client.match
+        .MockRestRequestMatchers.requestTo;
+import static org.springframework.test.web.client.response
+        .MockRestResponseCreators.withSuccess;
 
+// <1>
 @RunWith(SpringRunner.class)
 @RestClientTest({ UserService.class })
 @AutoConfigureWebClient(registerRestTemplate = true)
-// <1>
 public class UserServiceTests {
 
  @Value("${user-service.host:user-service}")

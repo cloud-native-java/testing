@@ -20,18 +20,15 @@ public class AccountRepositoryTest {
   "098765432");
 
  @Autowired
- private CustomerRepository customerRepository;
+ private AccountRepository accountRepository; //<1>
 
  @Autowired
- private TestEntityManager entityManager;
-
- @Autowired
- private AccountRepository accountRepository;
+ private TestEntityManager entityManager; //<2>
 
  @Test
  public void findUserAccountsShouldReturnAccounts() throws Exception {
-  this.entityManager.persist(new Account("jack", ACCOUNT_NUMBER));
-  List<Account> account = this.accountRepository.findAccountsByUsername("jack");
+  this.entityManager.persist(new Account("jack", ACCOUNT_NUMBER)); //<3>
+  List<Account> account = this.accountRepository.findAccountsByUsername("jack");//<4>
   assertThat(account).size().isEqualTo(1);
   Account actual = account.get(0);
   assertThat(actual.getAccountNumber()).isEqualTo(ACCOUNT_NUMBER);
