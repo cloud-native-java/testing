@@ -14,8 +14,11 @@ org.springframework.cloud.contract.spec.Contract.make {
                 username    : value(producer(regex('[A-Za-z0-9]+'))),
                 firstName   : value(producer(regex('[A-Za-z]+'))),
                 lastName    : value(producer(regex('[A-Za-z]+'))),
+
+//@formatter:off
                 email       : value(producer(
                         regex('[A-Za-z0-9]+\\@[A-Za-z0-9]+\\.[A-Za-z]+'))),
+//@formatter:on
                 createdAt   : value(producer(regex('[0-9]+'))),
                 lastModified: value(producer(regex('[0-9]+'))),
                 id          : value(producer(regex('[0-9]+')))

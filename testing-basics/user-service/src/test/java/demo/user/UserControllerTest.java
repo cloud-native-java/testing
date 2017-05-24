@@ -35,7 +35,6 @@ public class UserControllerTest {
   given(this.userService.getUserByPrincipal(new PrincipalImpl("user")))
    .willReturn(new User("user", "Jack", "Frost", "jfrost@example.com"));
 
-  // TODO: Mock authenticated user
   given(this.authService.getAuthenticatedUser(null)).willReturn(
    new PrincipalImpl("user"));
 

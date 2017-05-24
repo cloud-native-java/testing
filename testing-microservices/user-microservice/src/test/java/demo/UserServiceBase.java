@@ -34,7 +34,6 @@ public class UserServiceBase {
   given(this.userService.getUserByPrincipal(new PrincipalImpl("user")))
    .willReturn(actual);
 
-  // TODO: Mock authenticated user
   given(this.authService.getAuthenticatedUser(null)).willReturn(
    new PrincipalImpl("user"));
 

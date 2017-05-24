@@ -6,14 +6,22 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.cloud.contract.stubrunner.spring.AutoConfigureStubRunner;
+
+//@formatter:off
+import org.springframework.cloud.contract.stubrunner
+        .spring.AutoConfigureStubRunner;
+//@formatter:on
 import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+//@formatter:off
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE)
-@AutoConfigureStubRunner(ids = { "cnj:user-microservice:+:stubs:8081" }, workOffline = true) // <1>
+@AutoConfigureStubRunner(
+        ids = { "cnj:user-microservice:+:stubs:8081" },
+        workOffline = true) // <1>
+//@formatter:on
 public class ConsumerDrivenTests {
 
  @Autowired
