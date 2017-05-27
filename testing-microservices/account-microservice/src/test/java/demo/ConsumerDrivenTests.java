@@ -14,10 +14,11 @@ import org.springframework.cloud.contract.stubrunner
 import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.springframework.boot.test.context.SpringBootTest.*;
 
 //@formatter:off
 @RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE)
+@SpringBootTest(webEnvironment = WebEnvironment.NONE)
 @AutoConfigureStubRunner(
         ids = { "cnj:user-microservice:+:stubs:8081" },
         workOffline = true) // <1>
